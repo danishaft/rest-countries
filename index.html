@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest-Countries</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="relative">
+    <header class="heading elements w-full mb-8 md:mb-8 py-10 px-5 lg:px-40 flex justify-between flex-wrap">
+        <h2 class="head-text text-2xl font-extrabold">Where in the world?</h2>
+        <button id="mode-btn" class="text-sm font-semibold flex items-center">
+            <ion-icon id="icon-mode" name="sunny" class=" self-center mr-1 text-base"></ion-icon>
+            Dark Mode
+        </button>
+    </header>
+       <div id="wrapper" class=" pb-10">
+        <form class=" container w-4/5 mx-auto grid grid-cols-1 justify-center md:justify-items-stretch md:grid-cols-4 lg:grid-cols-5 mb-32 gap-8 md:gap-4 md:mb-16 md:w-11/12 lg:w-4/5 lg:px-2 relative">
+            <input id="search" type="text" class="elements text-sm block p-4 w-full md:w-full md:col-start-1 md:col-end-3 lg:col-start-1 lg:col-end-3 rounded-lg" placeholder="Search for a country" >
+            <div class=" w-4/6 md:w-full cursor-pointer text-sm block absolute top-20  md:top-0 md:col-start-4 md:col-end-4 lg:col-start-5 lg:col-end-5">
+                <div id="select" class="elements rounded-lg px-5 py-4 flex mb-2 justify-between">
+                    <p>Filter by Region</p>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </div>
+                <ul id="options" class="elements px-5 py-4 rounded-lg hidden">
+                    <li class="pb-2">Africa</li>
+                    <li class="pb-2">America</li>
+                    <li class="pb-2">Asia</li>
+                    <li class="pb-2">Europe</li>
+                    <li>Oceania</li>
+                </ul>
+            </div>
+        </form>
+        <div id="country-container" class="  container mx-auto grid grid-cols-1 gap-10 lg:gap-10  px-2 justify-items-center md:grid-cols-3 lg:grid-cols-4 lg:w-4/5 md:w-11/12 md:px-0">
+           <!--
+            <article class="country  elements rounded-lg">
+                <div class="img w-full h-2/4">
+                    <img src="https://flagcdn.com/w320/al.png" class="w-full h-full rounded-t-lg" alt="#">
+                </div>
+                <div class="details px-5">
+                    <h4 class="text-xl font-semibold pt-6 pb-2">Algeria</h4>
+                    <p class="text-sm pb-1"><span class="font-semibold">Population:</span>18,456</p>
+                    <p class="text-sm pb-1"><span class="font-semibold">Region:</span>Africa</p>
+                    <p class="text-sm pb-1"><span class="font-semibold">Capital:</span>Soweto</p>
+                </div>
+            </article>--> 
+        </div>
+       </div>
+        <div id="modal" class="absolute w-full max-h-screen hidden">
+            <div class="w-full mx-auto flex flex-col md:flex-row md:items-center items-center pb-8 ">
+                <div class="details w-5/6 sm:w-2/4 md:w-full mx-auto px-2 md:flex md:items-center md:justify-evenly lg:justify-evenly lg:w-9/12">
+                    <div class=" md:w-2/5 md:pr-4 lg:w-2/4">
+                        <button class="py-2 rounded px-4 my-8 lg:my-12 md:my-6 elements flex items-center"><ion-icon name="arrow-back-outline" class="mr-3 text-lg"></ion-icon> Back</button>
+                        <img src="https://flagcdn.com/w320/al.png" class=" w-full md:h-80" alt="" srcset="">
+                    </div>
+                    <div class="main-detials  md:self-end md:w-2/4 lg:w-2/5">
+                        <div class="list md:flex  md:justify-between ">
+                                <ul>
+                                    <li class="text-2xl font-bold pt-8 md:pt-4 md:pb-1 pb-4">Belgium</li>
+                                    <li class="text-sm pb-1"><span class="font-semibold text-base">Native Name:</span> Belgium</li>
+                                    <li class="text-sm pb-1"><span class="font-semibold text-base">Population:</span> Belgium</li>
+                                    <li class="text-sm pb-1"><span class="font-semibold text-base">Region:</span> Belgium</li>
+                                    <li class="text-sm pb-1"><span class="font-semibold text-base">Sub Region:</span> Belgium</li>
+                                    <li class="text-sm pb-1"><span class="font-semibold text-base">capital:</span> Belgium</li>
+                                </ul>
+                                <ul class="my-5 md:my-0 md:self-center md:pl-3">
+                                    <li class="text-sm pb-1"><span class="font-semibold text-base">Top Level Domain:</span> Belgium</li>
+                                    <li class="text-sm pb-1"><span class="font-semibold text-base">Currencies:</span> Belgium</li>
+                                    <li class="text-sm pb-1"><span class="font-semibold text-base">Languages:</span> Belgium</li>
+                                </ul>
+                        </div>
+                            <div class="lg:flex lg:justify-between">
+                                <p class="text-xl font-semibold mb-3 w-full md:pt-2 lg:pr-2">Border Countries:</p>
+                                <div class="flex flex-wrap lg:flex-nowrap lg:items-center w-full">
+                                    <span class=" elements py-2 px-4 text-sm mr-2 mb-1 lg:mr-1">Germany</span>
+                                    <span class=" text-sm elements py-2 px-4 mr-2 mb-1 lg:mr-1">Germany</span>
+                                    <span class=" text-sm elements py-2 px-4 mr-2 mb-1 lg:mr-1">Germany</span>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="index.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
